@@ -15,7 +15,7 @@ public class Navigation {
 	public void i_go_to(String arg1) throws Throwable {
 		System.setProperty("webdriver.chrome.driver", "D:\\Download\\chromedriver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.navigate().to("http://ec2-35-176-90-7.eu-west-2.compute.amazonaws.com/CrazyHatProject/");
+		driver.navigate().to("http://ec2-35-176-202-196.eu-west-2.compute.amazonaws.com/CrazyHatProject/");
 	}
 
 	@Then("^I should be on \"([^\"]*)\" Home Page$")
