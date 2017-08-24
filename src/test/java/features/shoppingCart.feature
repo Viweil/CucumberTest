@@ -7,7 +7,11 @@ I want to add an item to my shopping cart
 
 Scenario: Customer can add an item to shopping cart
 Given I open the website
-And I login as mocca with password
+And I login the website
+
+| fields | values |
+| mocca | 123 |
+
 When I click KIDS categories
 And I click a hat image
 And I am on the Hat Detail page

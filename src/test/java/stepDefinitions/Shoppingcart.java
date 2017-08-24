@@ -1,14 +1,17 @@
 package stepDefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
+
+import java.util.List;
 
 public class Shoppingcart {
 	
@@ -22,11 +25,13 @@ public class Shoppingcart {
 		driver.navigate().to("http://ec2-35-176-202-196.eu-west-2.compute.amazonaws.com/CrazyHatProject/");
 	}
 
-	@Given("^I login as mocca with password$")
-	public void i_login_as_mocca_with() throws Throwable {
+	@Given("^I login the website$")
+	public void i_login_the_website(DataTable usercredentials) throws Throwable {
+		List<List<String>> data = usercredentials.raw();
+		
 	    driver.findElement(By.id("login")).click();
-	    driver.findElement(By.id("customerName")).sendKeys("mocca");
-	    driver.findElement(By.id("customerPassword")).sendKeys("123");
+	    driver.findElement(By.id("customerName")).sendKeys(data.get(1).get(0));
+	    driver.findElement(By.id("customerPassword")).sendKeys(data.get(1).get(1));
 	    driver.findElement(By.id("btnLogin")).click();
 	}
 
